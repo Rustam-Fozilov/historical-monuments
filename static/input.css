@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "tt-regular";
+    src: url('./fonts/tt/tt-regular.ttf');
+}
+
+@font-face {
+    font-family: "tt-medium";
+    src: url('./fonts/tt/TT Hoves Pro Trial Medium.ttf');
+}
+
+@font-face {
+    font-family: "tt-bold";
+    src: url('./fonts/tt/TT Hoves Pro Trial Bold.ttf');
+}
+
+@layer components {
+    .container {
+        width: 1520px;
+        margin: 0 auto;
+    }
+}
+
+html, body {
+    background-color: #f5f5f5;
+}
