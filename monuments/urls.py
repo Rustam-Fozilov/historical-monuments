@@ -1,8 +1,8 @@
 from django.urls import path
 
-from home import views
+from monuments import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('favorites/', views.favorites, name='favorites'),
+    path('<monument_id>/', views.show, name='show'),
 ]

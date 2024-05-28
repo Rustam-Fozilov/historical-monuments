@@ -17,6 +17,9 @@ module.exports = {
       'tt-medium': 'tt-medium',
       'tt-bold': 'tt-bold',
     },
+    // colors: {
+    //   'bronze': '#e1a843'
+    // }
   },
   plugins: [],
 }

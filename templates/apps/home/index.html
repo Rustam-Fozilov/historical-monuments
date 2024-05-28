@@ -6,19 +6,19 @@ Home page
 
 {% block body %}
     <div>
-        <div id="banner" class="w-screen h-screen">
+        <div id="banner" class="h-screen">
             {% load static %}
-            <img class="w-full rounded-b-2xl h-full object-cover fa-flip-horizontal transform scale-x-[-1]" src="{% static 'images/banner.jpg' %}" alt="banner image">
+            <img class="w-full rounded-b-3xl h-full object-cover transform scale-x-[-1]" src="{% static 'images/banner.jpg' %}" alt="banner image">
         </div>
         <div class="text-white absolute top-1/4 ml-48 w-1/3 flex flex-col gap-12">
             <div class="font-tt-medium leading-none text-2xl text">
                 Qashqadaryo qadimiy
                 obidalari
             </div>
-            <p class="font-tt-regular leading-none text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad maiores, maxime reiciendis repellendus rerum suscipit!
+            <p class="font-tt-regular leading-none text-sm w-[75%]">
+                Qashqadaryo tarixiy obidalarining abadiy go'zalligini kashf eting. Bizning madaniy merosimizni belgilaydigan boy me'moriy mo'jizalarni o'rganing
             </p>
-            <button class="bg-white border border-white text-black w-fit px-5 py-3.5 rounded-full font-tt-regular hover:bg-transparent hover:text-white transition duration-300">Obidalarni ko'rish</button>
+            <a href="/monuments/" class="bg-white border border-white text-black w-fit px-5 py-3.5 rounded-full font-tt-regular hover:bg-transparent hover:text-white transition duration-300">Obidalarni ko'rish</a>
         </div>
     </div>
 
@@ -47,9 +47,61 @@ Home page
         </div>
     </div>
 
-    <div class="bg-[#D9A53D]">
-        <div class="container">
-            <h1>salom</h1>
+    {# SECTION 3#}
+    <div class="bg-[#e1a843] rounded-t-3xl">
+        <div class="container py-24">
+            <div class="flex flex-col gap-20">
+                <div class="font-tt-medium text-xl text-white leading-none tracking-tight">
+                    Lorem ipsum dolor sit amet, <br>
+                    consectetur adipisicing elit normal.
+                </div>
+                <div class="flex justify-between flex-wrap">
+                    {% for i in '123' %}
+                        <div class="w-[32.55%] bg-white rounded-2xl h-full flex flex-col cursor-pointer">
+                            <div class="h-1/2 w-full">
+                               <img class="w-full h-full object-cover rounded-t-2xl" src="{% static 'images/banner.jpg' %}" alt="">
+                            </div>
+                            <div class="p-7 font-tt-medium text-lg flex flex-col gap-5">
+                                <div>Kitob shaxri</div>
+                                <div class="overflow-ellipsis overflow-hidden text-rg font-tt-regular">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aut blanditiis commodi cum dicta ea eius error expedita fugiat impedit, ipsa labore obcaecati officia quas reprehenderit sapiente veritatis voluptates!
+                                </div>
+                                <button class="bg-[#e1a843] text-regular text-rg border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidalarni ko'rish</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# SECTION 4#}
+    <div>
+        <div class="container py-24">
+            <div>
+                <h1 class="font-tt-medium text-xl leading-none">
+                Lorem ipsum dolor sit, <br>
+                consectetur adipisicing elit.
+                </h1>
+            </div>
+            <div class="flex justify-between gap-1 flex-wrap mt-12">
+                <div class="w-[70%] flex flex-col justify-between gap-3">
+                    <div class="flex flex-wrap justify-between gap-4">
+                        {% for i in '1234' %}
+                        <div class="bg-white w-[49%] rounded-2xl p-5 flex flex-col gap-7">
+                            <div class="w-12 h-12">
+                               <img class="w-full h-full object-cover rounded-xl" src="{% static 'images/banner.jpg' %}" alt="">
+                            </div>
+                            <div class="font-tt-medium text-md">This is title</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="mt-2 font-tt-medium bg-[#e1a843] border border-[#e1a843] text-white py-3 rounded-full hover:bg-transparent hover:text-[#e1a843] transition duration-300">Barchasini ko'rish</button>
+                </div>
+                <div class="w-[29%]">
+                   <img class="w-full h-full object-cover rounded-2xl" src="{% static 'images/banner.jpg' %}" alt="">
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

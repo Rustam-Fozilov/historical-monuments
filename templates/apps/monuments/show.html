@@ -1,0 +1,63 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %}
+Show monument
+{% endblock %}
+
+{% block body %}
+
+    <div class="py-20">
+        <div class="container w-full mt-12">
+            <div class="flex justify-start gap-12">
+                <div class="w-1/3">
+                    {% load static %}
+                    <img class="w-full h-full object-cover rounded-3xl" src="{% static 'images/banner.jpg' %}" alt="Monument image">
+                </div>
+                <div class="w-2/3 flex flex-col gap-5 justify-between">
+                    <div>
+                        <div class="font-tt-medium text-lg tracking-tight">
+                            Title of the monument
+                        </div>
+                        <div class="w-3/4 mt-5">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur aut culpa, illo minima mollitia nostrum omnis repellat reprehenderit sapiente. Asperiores ea fugit nobis perferendis provident qui quidem, rerum voluptas. Accusantium adipisci animi at commodi culpa cumque debitis dignissimos ea enim est et hic illum ipsa ipsam iste labore laboriosam, laudantium libero maiores modi molestias mollitia nemo pariatur porro provident quam quod recusandae rerum sequi tempora. Ex minima omnis repudiandae.
+                        </div>
+                    </div>
+
+                    <button class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Sevimlilarga qo'shish</button>
+                    {% if false %}
+                        <button class="bg-gray-300 border border-gray-300 w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent transition duration-300">Sevimlilardan olib tashlash</button>
+                    {% endif %} 
+                </div>
+            </div>
+
+            <div class="font-tt-regular mt-12 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias consectetur expedita facilis iusto neque praesentium quis sunt vitae. Ad atque cumque dolor, doloribus, ea error et eveniet illum in libero nihil officia optio quasi ratione reiciendis soluta temporibus vel veniam. Animi architecto aut deleniti doloremque dolores eligendi, exercitationem facere hic illum laboriosam minima porro quaerat veritatis! Ab adipisci aliquid assumenda atque aut consequatur cupiditate doloribus expedita hic itaque, modi necessitatibus officia placeat porro quasi qui quidem quisquam rem similique sunt suscipit ut veniam veritatis vitae voluptate. Assumenda blanditiis consequatur in, laudantium nesciunt sapiente sint ullam. Animi laborum temporibus voluptas!
+            </div>
+            <div class="font-tt-regular mt-5 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias consectetur expedita facilis iusto neque praesentium quis sunt vitae. Ad atque cumque dolor, doloribus, ea error et eveniet illum in libero nihil officia optio quasi ratione reiciendis soluta temporibus vel veniam. Animi architecto aut deleniti doloremque dolores eligendi, exercitationem facere hic illum laboriosam minima porro quaerat veritatis! Ab adipisci aliquid assumenda atque aut consequatur cupiditate doloribus expedita hic itaque, modi necessitatibus officia placeat porro quasi qui quidem quisquam rem similique sunt suscipit ut veniam veritatis vitae voluptate. Assumenda blanditiis consequatur in, laudantium nesciunt sapiente sint ullam. Animi laborum temporibus voluptas!
+            </div>
+
+            <div class="mt-20">
+                <div class="font-tt-medium text-lg tracking-tight">
+                    O'xshash obidalar
+                </div>
+                <div class="flex flex-wrap justify-start gap-5 mt-5">
+                    {% for i in '12345678' %}
+                    <div class="w-[24%] h-full flex flex-col gap-5">
+                        <div class="w-full h-[320px]">
+                            <img class="w-full h-full rounded-2xl object-cover" src="{% static 'images/banner.jpg' %}" alt="monument image">
+                        </div>
+                        <div class="font-tt-medium text-md">
+                            Title of the monument
+                        </div>
+                        <div>
+                            <button class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidani ko'rish</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
