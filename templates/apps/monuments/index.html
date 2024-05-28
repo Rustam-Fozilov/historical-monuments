@@ -11,7 +11,7 @@
             <img class="w-full h-full object-cover transform scale-x-[-1]" src="{% static 'images/banner.jpg' %}" alt="">
         </div>
         <div class="ml-48 absolute top-[30%] tracking-tight font-tt-medium text-2xl text-white">
-            Obidalar to'plami (17)
+            Obidalar to'plami ({{ count }})
         </div>
     </div>
 
@@ -19,16 +19,16 @@
     <div>
         <div class="container py-20">
             <div class="flex flex-wrap justify-start gap-5">
-                {% for i in '1234567890' %}
+                {% for monument in monuments %}
                 <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
                     <div class="w-full h-[320px]">
-                        <img class="w-full h-full rounded-2xl object-cover" src="{% static 'images/banner.jpg' %}" alt="monument image">
+                        <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ monument.image }}" alt="monument image">
                     </div>
                     <div class="font-tt-medium text-md">
-                        Title of the monument
+                        {{ monument.title }}
                     </div>
                     <div>
-                        <a href="/monuments/1/" class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidani ko'rish</a>
+                        <a href="/monuments/{{ monument.id }}" class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidani ko'rish</a>
                     </div>
                 </div>
                 {% endfor %}

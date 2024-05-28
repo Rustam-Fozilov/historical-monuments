@@ -6,12 +6,23 @@ from monuments.models import Monument
 
 
 def index(request):
-    return render(request, 'apps/monuments/index.html')
+    monuments = Monument.objects.all()
+    context = {
+        'monuments': monuments,
+        'count': Monument.objects.count()
+    }
+
+    return render(request, 'apps/monuments/index.html', context=context)
 
 
 def show(request, monument_id: str):
-    # monument = Monument.objects.get(pk=monument_id)
-    # context = {'monument': monument}
+    monument = Monument.objects.get(pk=monument_id)
+    monuments = Monument.objects.all().order_by('-id')[:10]
+    context = {
+        'monument': monument,
+        'monuments': monuments,
+        'is_favorite': request.user.favorites.filter(monument=monument).exists(),
+    }
 
-    return render(request, 'apps/monuments/show.html')
+    return render(request, 'apps/monuments/show.html', context=context)
 
