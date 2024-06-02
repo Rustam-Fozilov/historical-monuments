@@ -24,18 +24,29 @@ Contact
                     Sizni qiziqtirgan har qanday savol bo'yicha <br> bizga yozishingiz mumkin
                 </div>
             </div>
-            <form class="flex flex-col gap-5 w-1/2">
+            <form method="post" action="/contact/send/" class="flex flex-col gap-5 w-1/2">
+                {% csrf_token %}
                 <div>
-                    <input required class="py-3 px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 w-full" type="text" placeholder="Ismingiz">
+                    <input name="name" required class="py-3 px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 w-full" type="text" placeholder="Ismingiz">
                 </div>
                 <div class="flex justify-between">
-                    <input required class="py-3 w-[49%] px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " type="text" placeholder="Telefon">
-                    <input class="py-3 w-[49%] px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " type="text" placeholder="Elektron pochta">
+                    <input name="phone" required class="py-3 w-[49%] px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " type="text" placeholder="Telefon">
+                    <input name="email" class="py-3 w-[49%] px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " type="text" placeholder="Elektron pochta">
                 </div>
                 <div>
-                    <textarea required placeholder="Xabaringizni yozing" rows="5" class="py-3 w-full px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50"></textarea>
+                    <textarea name="message" required placeholder="Xabaringizni yozing" rows="5" class="py-3 w-full px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50"></textarea>
                 </div>
                 <button type="submit" class="bg-[#e1a843] cursor-pointer border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-lg font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Jo'natish</button>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }} text-green-600 w-full"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                        {{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             </form>
         </div>
     </div>

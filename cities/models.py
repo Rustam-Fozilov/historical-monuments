@@ -17,5 +17,9 @@ class Cities(models.Model):
     image = models.ImageField(upload_to=get_upload_path)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Shaharlar'
+        verbose_name_plural = 'Shaharlar'
+
     def __str__(self):
         return self.name
