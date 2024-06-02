@@ -4,6 +4,12 @@
 Contact
 {% endblock %}
 
+{% block head %}
+{% load static %}
+{#<link rel="stylesheet" href="{% static 'css/btn3.css' %}">#}
+
+{% endblock %}
+
 {% block body %}
     <div class="container py-24">
         <div class="text-2xl font-tt-medium tracking-tight mt-12">
@@ -36,6 +42,14 @@ Contact
                 <div>
                     <textarea name="message" required placeholder="Xabaringizni yozing" rows="5" class="py-3 w-full px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50"></textarea>
                 </div>
+{#                <button id="btn">#}
+{#                    <p id="btnText">Submit</p>#}
+{#                    <div class="check-box">#}
+{#                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">#}
+{#                            <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />#}
+{#                        </svg>#}
+{#                    </div>#}
+{#                </button>#}
                 <button type="submit" class="bg-[#e1a843] cursor-pointer border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-lg font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Jo'natish</button>
                 {% if messages %}
                 <ul class="messages">
