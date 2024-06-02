@@ -15,23 +15,23 @@ News
 
                 <div class="flex justify-start gap-5 mt-12">
                     {% for new in news %}
-                    <div class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md">
+                    <a href="/news/{{ new.id }}/" class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md">
                         <div class="w-full h-[320px]">
                             {% load static %}
                             <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ new.image }}" alt="monument image">
                         </div>
-                        <div class="font-tt-medium text-md">
+                        <div class="font-tt-medium text-md text-ellipsis overflow-hidden whitespace-nowrap">
                             {{ new.title }}
                         </div>
-                        <div class="text-ellipsis" style="overflow: hidden; display: inline-block">
+                        <div class="text-ellipsis hidden whitespace-nowrap">
                             {{ new.body }}
                         </div>
                         <div class="mt-3 mb-3">
-                            <a href="/news/{{ new.id }}/" class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
+                            <button class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
                                 O'qish
-                            </a>
+                            </button>
                         </div>
-                    </div>
+                    </a>
                     {% endfor %}
                 </div>
             </div>

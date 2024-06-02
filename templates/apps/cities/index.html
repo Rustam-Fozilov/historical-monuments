@@ -20,7 +20,7 @@
         <div class="container py-20">
             <div class="flex flex-wrap justify-start gap-5">
                 {% for city in cities %}
-                <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
+                <a href="/cities/{{ city.id }}" class="w-[24%] h-full flex flex-col gap-5 mt-2">
                     <div class="w-full h-[320px]">
                         <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ city.image }}" alt="monument image">
                     </div>
@@ -28,11 +28,11 @@
                         {{ city.name }}
                     </div>
                     <div>
-                        <a href="/cities/{{ city.id }}" class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
+                        <button class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
                             Shaharni ko'rish
-                        </a>
+                        </button>
                     </div>
-                </div>
+                </a>
                 {% endfor %}
             </div>
         </div>

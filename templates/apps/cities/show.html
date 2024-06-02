@@ -6,7 +6,7 @@ Show monument
 
 {% block body %}
 
-    <div class="py-20">
+    <div class="py-28">
         <div class="container w-full mt-12">
             <div class="flex flex-col gap-5">
                 <div class="w-full">
@@ -14,12 +14,12 @@ Show monument
                         {{ city.name }}
                     </div>
                 </div>
-                <div class="w-full h-[250px]">
+                <div class="w-full h-[550px]">
                     <img class="w-full h-full object-cover rounded-3xl" src="http://localhost:8000/media/{{ city.image }}" alt="Monument image">
                 </div>
             </div>
 
-            <div class="font-tt-regular mt-12 text-sm">
+            <div class="font-tt-regular mt-12 text-sm text-justify">
                 {{ city.description }}
             </div>
 

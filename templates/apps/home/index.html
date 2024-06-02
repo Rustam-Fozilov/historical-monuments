@@ -4,6 +4,14 @@
 Home page
 {% endblock %}
 
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" src="{% static 'css/owl.theme.default.min.css' %}"/>
+
+{% endblock %}
+
 {% block body %}
     <div>
         <div id="banner" class="h-screen">
@@ -28,20 +36,23 @@ Home page
             <div class="font-tt-medium text-[46px] leading-none tracking-tight">
                Mashxur obidalar
             </div>
-            <div id="cards" class="flex flex-wrap justify-between mt-12 gap-5">
-                {% for i in '1234' %}
-                    <div class="w-[24%] bg-white rounded-2xl h-[350px] flex flex-col cursor-pointer">
+            <div id="cards" class="owl-carousel owl-theme w-full flex flex-wrap justify-between mt-12 gap-5">
+                {% for monument in best_monuments %}
+                    <a href="/monuments/{{ monument.id }}" class="w-full bg-white item rounded-2xl h-[350px] flex flex-col cursor-pointer">
                         <div class="h-1/2 w-full">
                            {% load static %}
-                           <img class="w-full h-full object-cover rounded-t-2xl" src="{% static 'images/banner.jpg' %}" alt="">
+                           <img class="w-full h-full object-cover rounded-t-2xl" src="http://localhost:8000/media/{{ monument.image }}" alt="">
                         </div>
                         <div class="p-5 font-tt-medium text-md">
-                           <div>Kitob shaxri</div>
-                           <div class="overflow-ellipsis overflow-hidden text-rg font-tt-regular">
-                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, sint?
+                           <div>{{ monument.title }}</div>
+                           <div class="text-ellipsis whitespace-nowrap text-rg font-tt-regular overflow-hidden">
+                               {{ monument.description }}
                            </div>
                         </div>
-                    </div>
+                        <div class="px-5 py-3">
+                            <button class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidani ko'rish</button>
+                        </div>
+                    </a>
                 {% endfor %}
             </div>
         </div>
@@ -56,19 +67,21 @@ Home page
                     ko'p tashrif buyurilgan shaxarlar
                 </div>
                 <div class="flex justify-between flex-wrap">
-                    {% for i in '123' %}
-                        <div class="w-[32.55%] bg-white rounded-2xl h-full flex flex-col cursor-pointer">
-                            <div class="h-1/2 w-full">
-                               <img class="w-full h-full object-cover rounded-t-2xl" src="{% static 'images/banner.jpg' %}" alt="">
+                    {% for city in cities %}
+                        <a href="/cities/{{ city.id }}/" class="w-[32.55%] bg-white rounded-2xl h-full flex flex-col cursor-pointer">
+                            <div class="h-[400px] w-full">
+                               <img class="w-full h-full object-cover rounded-t-2xl" src="http://localhost:8000/media/{{ city.image }}" alt="">
                             </div>
                             <div class="p-7 font-tt-medium text-lg flex flex-col gap-5">
-                                <div>Kitob shaxri</div>
-                                <div class="overflow-ellipsis overflow-hidden text-rg font-tt-regular">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aut blanditiis commodi cum dicta ea eius error expedita fugiat impedit, ipsa labore obcaecati officia quas reprehenderit sapiente veritatis voluptates!
+                                <div>{{ city.name }}</div>
+                                <div class="text-ellipsis text-wrap h-[48px] overflow-hidden text-rg font-tt-regular">
+                                    {{ city.description }}
                                 </div>
-                                <button class="bg-[#e1a843] text-regular text-rg border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidalarni ko'rish</button>
+                                <button class="bg-[#e1a843] text-regular text-rg border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
+                                    Shaharni ko'rish
+                                </button>
                             </div>
-                        </div>
+                        </a>
                     {% endfor %}
                 </div>
             </div>
@@ -80,28 +93,60 @@ Home page
         <div class="container py-24">
             <div>
                 <h1 class="font-tt-medium text-xl leading-none">
-                Lorem ipsum dolor sit, <br>
-                consectetur adipisicing elit.
+                So'nggi yangiliklardan<br>
+                Habardor bo'ling
                 </h1>
             </div>
             <div class="flex justify-between gap-1 flex-wrap mt-12">
                 <div class="w-[70%] flex flex-col justify-between gap-3">
                     <div class="flex flex-wrap justify-between gap-4">
-                        {% for i in '1234' %}
-                        <div class="bg-white w-[49%] rounded-2xl p-5 flex flex-col gap-7">
+                        {% for new in news %}
+                        <a href="/news/{{ new.id }}" class="bg-white w-[49%] rounded-2xl p-5 flex flex-col gap-7">
                             <div class="w-12 h-12">
-                               <img class="w-full h-full object-cover rounded-xl" src="{% static 'images/banner.jpg' %}" alt="">
+                               <img class="w-full h-full object-cover rounded-xl" src="http://localhost:8000/media/{{ new.image }}" alt="">
                             </div>
-                            <div class="font-tt-medium text-md">This is title</div>
-                        </div>
+                            <div class="font-tt-medium text-md text-ellipsis text-nowrap overflow-hidden">
+                                {{ new.title }}
+                            </div>
+                        </a>
                         {% endfor %}
                     </div>
-                    <button class="mt-2 font-tt-medium bg-[#e1a843] border border-[#e1a843] text-white py-3 rounded-full hover:bg-transparent hover:text-[#e1a843] transition duration-300">Barchasini ko'rish</button>
+                    <a href="/news/" class="mt-2 font-tt-medium bg-[#e1a843] text-center border border-[#e1a843] text-white py-3 rounded-full hover:bg-transparent hover:text-[#e1a843] transition duration-300">Barchasini ko'rish</a>
                 </div>
                 <div class="w-[29%]">
-                   <img class="w-full h-full object-cover rounded-2xl" src="{% static 'images/banner.jpg' %}" alt="">
+                   <img class="w-full h-full object-cover rounded-2xl" src="{% static 'images/news_banner.jpg' %}" alt="">
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>
+
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<script>
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+responsive:{
+    0:{
+        items:1
+    },
+    600:{
+        items:3
+    },
+    1000:{
+        items:5
+    }
+}
+})
+});
+</script>
+
 {% endblock %}

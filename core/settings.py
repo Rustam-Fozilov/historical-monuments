@@ -141,5 +141,5 @@ CSRF_COOKIE_Domain = None
 UNFOLD = {
     "SITE_TITLE": "Admin panel",
     "SITE_HEADER": "Admin panel",
-    "THEME": "dark",
+    # "THEME": "dark",
 }

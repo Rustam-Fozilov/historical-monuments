@@ -1,11 +1,12 @@
 <div class="fixed z-10 w-full backdrop-blur-md">
-    <div class="flex justify-between items-center container py-4">
-        <div onclick="toggleSearch()" class="w-12 h-12 flex justify-center items-center bg-black bg-opacity-10 border border-white border-opacity-50 cursor-pointer rounded-full hover:border-none transition duration-300">
-           <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 18L13.9862 13.9791M16.2105 8.60526C16.2105 10.6223 15.4093 12.5567 13.983 13.983C12.5567 15.4093 10.6223 16.2105 8.60526 16.2105C6.58822 16.2105 4.65379 15.4093 3.22753 13.983C1.80127 12.5567 1 10.6223 1 8.60526C1 6.58822 1.80127 4.65379 3.22753 3.22753C4.65379 1.80127 6.58822 1 8.60526 1C10.6223 1 12.5567 1.80127 13.983 3.22753C15.4093 4.65379 16.2105 6.58822 16.2105 8.60526Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="flex gap-5 font-tt-regular text-black">
+    <div class="flex justify-between items-center container">
+        <a href="/">
+            <span>
+            {% load static %}
+            <img width="140" src="{% static 'images/logo2.png' %}" alt="Logo">
+            </span>
+        </a>
+        <div class="flex gap-5 font-tt-regular text-black text-sm">
             <a href="/" class="cursor-pointer hover:opacity-70 transition duration-300">Asosiy</a>
             <a href="/monuments/" class="cursor-pointer hover:opacity-70 transition duration-300">Obidalar</a>
             <a href="/cities/" class="cursor-pointer hover:opacity-70 transition duration-300">Shaharlar</a>
@@ -13,6 +14,11 @@
             <a href="/contact/" class="cursor-pointer hover:opacity-70 transition duration-300">Bog'lanish</a>
         </div>
         <div class="flex items-center gap-3">
+            <div onclick="toggleSearch()" class="w-12 h-12 flex justify-center items-center bg-black bg-opacity-10 border border-white border-opacity-50 cursor-pointer rounded-full hover:border-none transition duration-300">
+               <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 18L13.9862 13.9791M16.2105 8.60526C16.2105 10.6223 15.4093 12.5567 13.983 13.983C12.5567 15.4093 10.6223 16.2105 8.60526 16.2105C6.58822 16.2105 4.65379 15.4093 3.22753 13.983C1.80127 12.5567 1 10.6223 1 8.60526C1 6.58822 1.80127 4.65379 3.22753 3.22753C4.65379 1.80127 6.58822 1 8.60526 1C10.6223 1 12.5567 1.80127 13.983 3.22753C15.4093 4.65379 16.2105 6.58822 16.2105 8.60526Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
             {% if user.is_authenticated %}
             <a href="/favorites/" class="w-12 h-12 flex justify-center items-center bg-black bg-opacity-10 border border-white border-opacity-50 cursor-pointer rounded-full hover:border-none transition duration-300">
                 <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +33,7 @@
             </a>
             {% endif %}
             {% if user.is_authenticated %}
-            <a href="/logout/" class="bg-white cursor-pointer border border-white text-black w-fit px-5 py-3.5 rounded-full font-tt-regular">
+            <a href="/logout/" class="bg-white cursor-pointer border border-white text-sm text-black w-fit px-5 py-3.5 rounded-full font-tt-regular">
                 Chiqish
             </a>
             {% else %}
@@ -44,7 +50,7 @@
 
 {# SEARCH MODAL #}
 <div id="search-modal" class="absolute top-0 z-[1000] hidden">
-    <div class="bg-black fixed w-screen h-screen">
+    <div class="bg-transparent fixed w-screen h-screen backdrop-blur-md">
       <div onclick="toggleSearch()" class="w-full flex justify-end pe-24 mr-5 pt-12 lg:pe-5 lg:pt-5">
         <svg style="cursor: pointer;" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_120_2)">
@@ -62,7 +68,7 @@
       <div class="text-white flex flex-col items-center justify-around h-full">
         <div class="w-1/2 flex flex-col items-start lg:w-[90%]">
           <form action="/search/" class="w-full flex justify-center items-center mb-12">
-            <input type="text" name="query" id="query" class="w-full text-xl font-regular outline-0 bg-transparent pb-1 border-b-2 text-center opacity-50 focus:opacity-100" placeholder="Obidalarni qidiring"/>
+            <input type="text" name="query" id="query" class="w-full text-xl font-regular outline-0 bg-transparent pb-1 border-b-2 text-center text-black focus:opacity-100" placeholder="Qidirish uchun biron bir jumla yozing"/>
             <div>
               <svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807614 19.9792 0.807614 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z" fill="white"></path>
@@ -73,6 +79,13 @@
       </div>
     </div>
 </div>
+
+<style>
+    #query::placeholder {
+        color: black;
+        opacity: 0.7;
+    }
+</style>
 
 {% block script %}
     <script>

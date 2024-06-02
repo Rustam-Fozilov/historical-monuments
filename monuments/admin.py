@@ -1,12 +1,14 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 
 from monuments import models
+from unfold.admin import ModelAdmin
 
 
 # Register your models here.
 
+
 @admin.register(models.Monument)
-class MonumentAdmin(admin.ModelAdmin):
+class MonumentAdmin(ModelAdmin):
     list_display = ('title', 'description', 'created_at')
     list_display_links = ('title',)
     list_filter = ('created_at',)

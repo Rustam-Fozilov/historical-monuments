@@ -3,11 +3,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
 from monuments.models import Monument
+from cities.models import Cities
+from news.models import News
 from .forms import RegistrationForm, LoginForm
 
 
 def index(request):
-    return render(request, 'apps/home/index.html')
+    best_monuments = Monument.objects.all().order_by('?')[:4]
+    cities = Cities.objects.all().order_by('?')[:3]
+    news = News.objects.all().order_by('?')[:4]
+
+    context = {
+        'best_monuments': best_monuments,
+        'cities': cities,
+        'news': news,
+    }
+
+    return render(request, 'apps/home/index.html', context=context)
 
 
 def favorites(request):

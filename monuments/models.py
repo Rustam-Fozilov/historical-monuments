@@ -19,10 +19,11 @@ class Monument(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     image = models.ImageField(upload_to=get_upload_path)
+    video = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'Obidalar'
+        verbose_name = 'Obida'
         verbose_name_plural = 'Obidalar'
 
     def __str__(self):
