@@ -1,6 +1,6 @@
 <div class="fixed z-10 w-full backdrop-blur-md">
     <div class="flex justify-between items-center container py-4">
-        <div class="w-12 h-12 flex justify-center items-center bg-black bg-opacity-10 border border-white border-opacity-50 cursor-pointer rounded-full hover:border-none transition duration-300">
+        <div onclick="toggleSearch()" class="w-12 h-12 flex justify-center items-center bg-black bg-opacity-10 border border-white border-opacity-50 cursor-pointer rounded-full hover:border-none transition duration-300">
            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 18L13.9862 13.9791M16.2105 8.60526C16.2105 10.6223 15.4093 12.5567 13.983 13.983C12.5567 15.4093 10.6223 16.2105 8.60526 16.2105C6.58822 16.2105 4.65379 15.4093 3.22753 13.983C1.80127 12.5567 1 10.6223 1 8.60526C1 6.58822 1.80127 4.65379 3.22753 3.22753C4.65379 1.80127 6.58822 1 8.60526 1C10.6223 1 12.5567 1.80127 13.983 3.22753C15.4093 4.65379 16.2105 6.58822 16.2105 8.60526Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
             </svg>
@@ -9,8 +9,8 @@
             <a href="/" class="cursor-pointer hover:opacity-70 transition duration-300">Asosiy</a>
             <a href="/monuments/" class="cursor-pointer hover:opacity-70 transition duration-300">Obidalar</a>
             <a href="/cities/" class="cursor-pointer hover:opacity-70 transition duration-300">Shaharlar</a>
-            <a href="/cities/" class="cursor-pointer hover:opacity-70 transition duration-300">Yangiliklar</a>
-            <div class="cursor-pointer hover:opacity-70 transition duration-300">Bog'lanish</div>
+            <a href="/news/" class="cursor-pointer hover:opacity-70 transition duration-300">Yangiliklar</a>
+            <a href="/contact/" class="cursor-pointer hover:opacity-70 transition duration-300">Bog'lanish</a>
         </div>
         <div class="flex items-center gap-3">
             {% if user.is_authenticated %}
@@ -41,3 +41,45 @@
         </div>
     </div>
 </div>
+
+{# SEARCH MODAL #}
+<div id="search-modal" class="absolute top-0 z-[1000] hidden">
+    <div class="bg-black fixed w-screen h-screen">
+      <div onclick="toggleSearch()" class="w-full flex justify-end pe-24 mr-5 pt-12 lg:pe-5 lg:pt-5">
+        <svg style="cursor: pointer;" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_120_2)">
+            <path d="M22.9999 44.85C35.0673 44.85 44.8499 35.0674 44.8499 23C44.8499 10.9326 35.0673 1.14999 22.9999 1.14999C10.9325 1.14999 1.1499 10.9326 1.1499 23C1.1499 35.0674 10.9325 44.85 22.9999 44.85Z" stroke="white"></path>
+            <path d="M31.1729 14.6133L14.6133 31.1731" stroke="white"></path>
+            <path d="M14.8269 14.6133L31.3865 31.1729" stroke="white"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_120_2">
+              <rect width="46" height="46" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <div class="text-white flex flex-col items-center justify-around h-full">
+        <div class="w-1/2 flex flex-col items-start lg:w-[90%]">
+          <form action="/search/" class="w-full flex justify-center items-center mb-12">
+            <input type="text" name="query" id="query" class="w-full text-xl font-regular outline-0 bg-transparent pb-1 border-b-2 text-center opacity-50 focus:opacity-100" placeholder="Obidalarni qidiring"/>
+            <div>
+              <svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31.0607 13.0607C31.6464 12.4749 31.6464 11.5251 31.0607 10.9393L21.5147 1.3934C20.9289 0.807614 19.9792 0.807614 19.3934 1.3934C18.8076 1.97919 18.8076 2.92893 19.3934 3.51472L27.8787 12L19.3934 20.4853C18.8076 21.0711 18.8076 22.0208 19.3934 22.6066C19.9792 23.1924 20.9289 23.1924 21.5147 22.6066L31.0607 13.0607ZM-1.31134e-07 13.5L30 13.5L30 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z" fill="white"></path>
+              </svg>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% block script %}
+    <script>
+    
+    function toggleSearch() {
+        document.getElementById('search-modal').classList.toggle('hidden')
+    }
+    
+    </script>
+{% endblock %}

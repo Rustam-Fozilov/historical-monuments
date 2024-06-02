@@ -23,3 +23,7 @@ class Favorite(models.Model):
     user = models.ForeignKey(User, related_name='favorites', on_delete=models.CASCADE)
     monument = models.ForeignKey(Monument, related_name='favorites', on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = 'Sevimlilar'
+        verbose_name_plural = 'Sevimlilar'
+

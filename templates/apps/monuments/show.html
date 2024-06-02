@@ -24,13 +24,19 @@ Show monument
                     </div>
 
                     {% if not is_favorite %}
-                    <form action="/favorites/" method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="monument" value="{{ monument.id }}">
-                        <button type="submit" class="bg-[#e1a843] flex items-center gap-2 border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
-                            Sevimlilarga qo'shish
-                        </button>
-                    </form>
+                        {% if user.is_authenticated %}
+                            <form action="/favorites/" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="monument" value="{{ monument.id }}">
+                                <button type="submit" class="bg-[#e1a843] flex items-center gap-2 border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
+                                    Sevimlilarga qo'shish
+                                </button>
+                            </form>
+                        {% else %}
+                            <a href="/login/" type="submit" class="bg-[#e1a843] flex items-center gap-2 border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
+                                Sevimlilarga qo'shish
+                            </a>
+                        {% endif %}
                     {% else %}
                     <form action="/favorites/" method="POST">
                         {% csrf_token %}

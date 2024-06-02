@@ -1,0 +1,30 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block body %}
+
+    <div class="container py-24">
+        <div>
+            <div class="font-tt-medium text-2xl tracking-tight text-center mt-12">Natijalar</div>
+            <div class="mt-12 flex flex-wrap justify-start">
+                {% for monument in monuments %}
+                <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
+                    <div class="w-full h-[320px]">
+                        <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ monument.image }}" alt="monument image">
+                    </div>
+                    <div class="font-tt-medium text-md">
+                        {{ monument.title }}
+                    </div>
+                    <div>
+                        <a href="/monuments/{{ monument.id }}" class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Obidani ko'rish</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

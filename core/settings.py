@@ -41,6 +41,9 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'monuments.apps.MonumentsConfig',
+    'news.apps.NewsConfig',
+    'cities.apps.CitiesConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
@@ -107,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz-uz'
 
 TIME_ZONE = 'UTC'
 
@@ -134,3 +137,9 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CSRF_COOKIE_Domain = None
+
+UNFOLD = {
+    "SITE_TITLE": "Admin panel",
+    "SITE_HEADER": "Admin panel",
+    "THEME": "dark",
+}

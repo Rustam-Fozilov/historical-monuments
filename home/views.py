@@ -31,6 +31,11 @@ def favorites(request):
         return render(request, 'apps/home/favorites.html', context=context)
 
 
+def search(request):
+    monuments = Monument.objects.filter(title__icontains=request.GET['query'])
+    return render(request, 'apps/home/result.html', {'monuments': monuments})
+
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -39,9 +44,8 @@ def user_login(request):
             password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
             if user:
-                print('login')
                 login(request, user)
-                return redirect('index')
+                return redirect('/')
             else:
                 form.add_error('password', 'incorrect')
     else:
@@ -58,8 +62,9 @@ def user_register(request):
 
         user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, password=password, username=email)
         user.save()
+        login(request, user)
 
-        return redirect('login')
+        return redirect('/')
 
     else:
         return render(request, 'apps/auth/register.html')
@@ -67,4 +72,4 @@ def user_register(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('index')
+    return redirect('/')

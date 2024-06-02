@@ -21,5 +21,9 @@ class Monument(models.Model):
     image = models.ImageField(upload_to=get_upload_path)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Obidalar'
+        verbose_name_plural = 'Obidalar'
+
     def __str__(self):
         return self.title

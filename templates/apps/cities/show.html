@@ -1,0 +1,51 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %}
+Show monument
+{% endblock %}
+
+{% block body %}
+
+    <div class="py-20">
+        <div class="container w-full mt-12">
+            <div class="flex flex-col gap-5">
+                <div class="w-full">
+                    <div class="font-tt-medium text-center text-lg tracking-tight">
+                        {{ city.name }}
+                    </div>
+                </div>
+                <div class="w-full h-[250px]">
+                    <img class="w-full h-full object-cover rounded-3xl" src="http://localhost:8000/media/{{ city.image }}" alt="Monument image">
+                </div>
+            </div>
+
+            <div class="font-tt-regular mt-12 text-sm">
+                {{ city.description }}
+            </div>
+
+            <div class="mt-20">
+                <div class="font-tt-medium text-lg tracking-tight">
+                    Boshqa shaharlar
+                </div>
+                <div class="flex flex-wrap justify-start gap-5 mt-5">
+                    {% for city2 in other %}
+                    <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
+                        <div class="w-full h-[320px]">
+                            <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ city2.image }}" alt="monument image">
+                        </div>
+                        <div class="font-tt-medium text-md">
+                            {{ city2.name }}
+                        </div>
+                        <div>
+                            <a href="/cities/{{ city2.id }}" class="bg-[#e1a843] border border-[#e1a843] text-white w-fit px-5 py-3 rounded-full font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">
+                                Shaharni ko'rish
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
