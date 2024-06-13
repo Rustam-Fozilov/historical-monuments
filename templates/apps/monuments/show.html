@@ -11,7 +11,7 @@ Show monument
             <div class="flex justify-start gap-12">
                 <div class="w-1/3 h-[400px]">
                     {% load static %}
-                    <img class="w-full h-full object-cover rounded-3xl" src="http://localhost:8000/media/{{ monument.image }}" alt="Monument image">
+                    <img class="w-full h-full object-cover rounded-3xl" src="https://obidalar.uz/media/{{ monument.image }}" alt="Monument image">
                 </div>
                 <div class="w-2/3 flex flex-col gap-5 justify-between">
                     <div>
@@ -72,7 +72,7 @@ Show monument
                     {% for monument in monuments %}
                     <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
                         <div class="w-full h-[320px]">
-                            <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ monument.image }}" alt="monument image">
+                            <img class="w-full h-full rounded-2xl object-cover" src="https://obidalar.uz/media/{{ monument.image }}" alt="monument image">
                         </div>
                         <div class="font-tt-medium text-md">
                             {{ monument.title }}

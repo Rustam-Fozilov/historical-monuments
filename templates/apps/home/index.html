@@ -41,7 +41,7 @@ Home page
                     <a href="/monuments/{{ monument.id }}" class="w-full bg-white item rounded-2xl h-[350px] flex flex-col cursor-pointer">
                         <div class="h-1/2 w-full">
                            {% load static %}
-                           <img class="w-full h-full object-cover rounded-t-2xl" src="http://localhost:8000/media/{{ monument.image }}" alt="">
+                           <img class="w-full h-full object-cover rounded-t-2xl" src="https://obidalar.uz/media/{{ monument.image }}" alt="">
                         </div>
                         <div class="p-5 font-tt-medium text-md">
                            <div>{{ monument.title }}</div>
@@ -70,7 +70,7 @@ Home page
                     {% for city in cities %}
                         <a href="/cities/{{ city.id }}/" class="w-[32.55%] bg-white rounded-2xl h-full flex flex-col cursor-pointer">
                             <div class="h-[400px] w-full">
-                               <img class="w-full h-full object-cover rounded-t-2xl" src="http://localhost:8000/media/{{ city.image }}" alt="">
+                               <img class="w-full h-full object-cover rounded-t-2xl" src="https://obidalar.uz/media/{{ city.image }}" alt="">
                             </div>
                             <div class="p-7 font-tt-medium text-lg flex flex-col gap-5">
                                 <div>{{ city.name }}</div>
@@ -103,7 +103,7 @@ Home page
                         {% for new in news %}
                         <a href="/news/{{ new.id }}" class="bg-white w-[49%] rounded-2xl p-5 flex flex-col gap-7">
                             <div class="w-12 h-12">
-                               <img class="w-full h-full object-cover rounded-xl" src="http://localhost:8000/media/{{ new.image }}" alt="">
+                               <img class="w-full h-full object-cover rounded-xl" src="https://obidalar.uz/media/{{ new.image }}" alt="">
                             </div>
                             <div class="font-tt-medium text-md text-ellipsis text-nowrap overflow-hidden">
                                 {{ new.title }}

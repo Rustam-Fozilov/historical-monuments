@@ -1283,13 +1283,13 @@ video {
 @font-face {
   font-family: "tt-medium";
 
-  src: url('./fonts/tt/TT Hoves Pro Trial Medium.ttf');
+  src: url('fonts/tt/tt-medium.ttf');
 }
 
 @font-face {
   font-family: "tt-bold";
 
-  src: url('./fonts/tt/TT Hoves Pro Trial Bold.ttf');
+  src: url('fonts/tt/tt-bold.ttf');
 }
 
 html, body {

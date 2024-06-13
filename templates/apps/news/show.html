@@ -16,7 +16,7 @@ Show news
                 </div>
                 <div class="w-full h-[550px]">
                     {% load static %}
-                    <img class="w-full h-full object-cover rounded-3xl" src="http://localhost:8000/media/{{ news.image }}" alt="Monument image">
+                    <img class="w-full h-full object-cover rounded-3xl" src="https://obidalar.uz/media/{{ news.image }}" alt="Monument image">
                 </div>
             </div>
 
@@ -33,7 +33,7 @@ Show news
                     <div class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md">
                         <div class="w-full h-[320px]">
                             {% load static %}
-                            <img class="w-full h-full rounded-2xl object-cover" src="http://localhost:8000/media/{{ other.image }}" alt="monument image">
+                            <img class="w-full h-full rounded-2xl object-cover" src="https://obidalar.uz/media/{{ other.image }}" alt="monument image">
                         </div>
                         <div class="font-tt-medium text-md text-ellipsis overflow-hidden text-nowrap">
                             {{ other.title }}
