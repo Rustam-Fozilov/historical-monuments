@@ -10,6 +10,9 @@
     {% block head %}
     {% endblock %}
     <title>{% block title %} Base title {% endblock %}</title>
+
+    {% block style %}
+    {% endblock %}
 </head>
 <body>
     {% include 'components/navbar.html' %}

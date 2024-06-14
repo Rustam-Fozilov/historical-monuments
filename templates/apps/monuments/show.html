@@ -6,19 +6,19 @@ Show monument
 
 {% block body %}
 
-    <div class="py-28">
-        <div class="container w-full mt-12">
-            <div class="flex justify-start gap-12">
-                <div class="w-1/3 h-[400px]">
+    <div class="py-28 sm:pt-60">
+        <div class="container mt-12">
+            <div class="flex justify-start gap-12 lg:flex-col lg:gap-7">
+                <div class="w-1/3 h-[400px] lg:w-full lg:h-[300px]">
                     {% load static %}
                     <img class="w-full h-full object-cover rounded-3xl" src="https://obidalar.uz/media/{{ monument.image }}" alt="Monument image">
                 </div>
-                <div class="w-2/3 flex flex-col gap-5 justify-between">
+                <div class="w-2/3 flex flex-col gap-5 justify-between lg:w-full">
                     <div>
                         <div class="font-tt-medium text-lg tracking-tight">
                             {{ monument.title }}
                         </div>
-                        <div class="w-3/4 mt-5">
+                        <div class="w-3/4 mt-5 lg:w-full">
                             {{ monument.description }}
                         </div>
                     </div>
@@ -64,13 +64,13 @@ Show monument
                 {{ monument.description }}
             </div>
 
-            <div class="mt-20">
+            <div class="mt-20 lg:mt-12">
                 <div class="font-tt-medium text-lg tracking-tight">
                     Boshqa obidalar
                 </div>
-                <div class="flex flex-wrap justify-start gap-5 mt-5">
+                <div class="flex flex-wrap justify-start gap-5 mt-5 lg:flex-col">
                     {% for monument in monuments %}
-                    <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
+                    <div class="w-[24%] h-full flex flex-col gap-5 mt-2 lg:w-full">
                         <div class="w-full h-[320px]">
                             <img class="w-full h-full rounded-2xl object-cover" src="https://obidalar.uz/media/{{ monument.image }}" alt="monument image">
                         </div>

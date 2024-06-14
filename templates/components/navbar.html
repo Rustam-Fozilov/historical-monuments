@@ -1,12 +1,12 @@
 <div class="fixed z-10 w-full backdrop-blur-md">
-    <div class="flex justify-between items-center container">
+    <div class="flex justify-between items-center container lg:flex-col lg:gap-3 lg:p-5">
         <a href="/">
             <span>
             {% load static %}
-            <img width="140" src="{% static 'images/logo2.png' %}" alt="Logo">
+            <img width="140" src="{% static 'images/logo2.png' %}" alt="Logo" class="lg:w-20">
             </span>
         </a>
-        <div class="flex gap-5 font-tt-regular text-black text-sm">
+        <div class="flex gap-5 font-tt-regular text-black text-sm lg:text-[16px] flex-wrap">
             <a href="/" class="cursor-pointer hover:opacity-70 transition duration-300">Asosiy</a>
             <a href="/monuments/" class="cursor-pointer hover:opacity-70 transition duration-300">Obidalar</a>
             <a href="/cities/" class="cursor-pointer hover:opacity-70 transition duration-300">Shaharlar</a>
@@ -33,7 +33,7 @@
             </a>
             {% endif %}
             {% if user.is_authenticated %}
-            <a href="/logout/" class="bg-white cursor-pointer border border-white text-sm text-black w-fit px-5 py-3.5 rounded-full font-tt-regular">
+            <a href="/logout/" class="bg-white cursor-pointer border border-white text-sm text-black w-fit px-5 py-3.5 rounded-full font-tt-regular lg:py-3">
                 Chiqish
             </a>
             {% else %}

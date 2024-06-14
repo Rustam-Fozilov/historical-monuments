@@ -11,33 +11,33 @@ Contact
 {% endblock %}
 
 {% block body %}
-    <div class="container py-24">
+    <div class="container py-24 sm:pt-56">
         <div class="text-2xl font-tt-medium tracking-tight mt-12">
             Kontakt
         </div>
         <div class="flex justify-between w-full mt-12">
-            <div class="flex justify-between w-full font-tt-medium text-md">
+            <div class="flex justify-between w-full font-tt-medium text-md sm:flex-col">
                 <div>admin@qashqadaryo.uz <div class="text-sm opacity-50">Umumiy savollar</div></div>
                 <div>+998 90 947 91 08 <div class="text-sm opacity-50">Aloqa markazi</div></div>
                 <div>Toshkent shahar <div class="text-sm opacity-50">Pochta manzili</div></div>
             </div>
         </div>
 
-        <div class="mt-12 w-full flex justify-between p-10 bg-white rounded-3xl">
-            <div class="w-1/2">
+        <div class="mt-12 w-full flex justify-between p-10 bg-white rounded-3xl sm:flex-col">
+            <div class="w-1/2 sm:w-full">
                 <div class="text-lg font-tt-medium">Biz bilan bog'laning</div>
-                <div class="font-tt-regular text-sm">
+                <div class="font-tt-regular text-sm sm:mb-5">
                     Sizni qiziqtirgan har qanday savol bo'yicha <br> bizga yozishingiz mumkin
                 </div>
             </div>
-            <form method="post" action="/contact/send/" class="flex flex-col gap-5 w-1/2">
+            <form method="post" action="/contact/send/" class="flex flex-col gap-5 w-1/2 sm:w-full">
                 {% csrf_token %}
                 <div>
                     <input name="name" required class="py-3 px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 w-full" type="text" placeholder="Ismingiz">
                 </div>
-                <div class="flex justify-between">
-                    <input name="phone" required class="py-3 w-[49%] px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " type="text" placeholder="Telefon">
-                    <input name="email" type="email" class="py-3 w-[49%] px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " placeholder="Elektron pochta">
+                <div class="flex justify-between sm:flex-col sm:gap-5">
+                    <input name="phone" required class="py-3 w-[49%] sm:w-full px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " type="text" placeholder="Telefon">
+                    <input name="email" type="email" class="py-3 w-[49%] sm:w-full px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50 " placeholder="Elektron pochta">
                 </div>
                 <div>
                     <textarea name="message" required placeholder="Xabaringizni yozing" rows="5" class="py-3 w-full px-5 font-tt-regular text-sm rounded-lg border border-black border-opacity-10 outline-none bg-gray-50"></textarea>
@@ -50,7 +50,7 @@ Contact
 {#                        </svg>#}
 {#                    </div>#}
 {#                </button>#}
-                <button type="submit" class="bg-[#e1a843] cursor-pointer border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-lg font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Jo'natish</button>
+                <button type="submit" class="bg-[#e1a843] sm:w-full cursor-pointer border border-[#e1a843] text-white w-fit px-5 py-3.5 rounded-lg font-tt-regular hover:bg-transparent hover:text-[#e1a843] transition duration-300">Jo'natish</button>
                 {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}

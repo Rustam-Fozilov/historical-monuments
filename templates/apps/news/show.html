@@ -6,32 +6,32 @@ Show news
 
 {% block body %}
 
-    <div class="py-28">
-        <div class="container w-full mt-12">
+    <div class="py-28 pt-56">
+        <div class="container mt-12">
             <div class="flex flex-col gap-5">
                 <div class="w-full">
-                    <div class="font-tt-medium text-center text-lg tracking-tight">
+                    <div class="font-tt-medium text-center text-lg tracking-tight sm:text-md">
                         {{ news.title }}
                     </div>
                 </div>
-                <div class="w-full h-[550px]">
+                <div class="w-full h-[550px] sm:h-[300px]">
                     {% load static %}
                     <img class="w-full h-full object-cover rounded-3xl" src="https://obidalar.uz/media/{{ news.image }}" alt="Monument image">
                 </div>
             </div>
 
-            <div class="font-tt-regular text-justify mt-12 text-sm">
+            <div class="font-tt-regular text-justify mt-12 text-sm sm:mt-5">
                 {{ news.body }}
             </div>
 
-            <div class="mt-20">
+            <div class="mt-20 sm:mt-12">
                 <div class="font-tt-medium text-lg tracking-tight">
                     O'xshash yangiliklar
                 </div>
-                <div class="flex justify-start gap-5 mt-12">
+                <div class="flex justify-start gap-5 mt-12 sm:mt-5 sm:flex-col">
                     {% for other in others %}
-                    <div class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md">
-                        <div class="w-full h-[320px]">
+                    <div class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md sm:w-full sm:max-w-full">
+                        <div class="w-full h-[320px] sm:h-[250px]">
                             {% load static %}
                             <img class="w-full h-full rounded-2xl object-cover" src="https://obidalar.uz/media/{{ other.image }}" alt="monument image">
                         </div>

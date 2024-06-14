@@ -6,17 +6,17 @@ News
 
 {% block body %}
 
-    <div class="py-24">
+    <div class="py-24 sm:py-56">
         <div class="container">
             <div class="mt-12">
                 <div class="font-tt-medium text-center text-xl">
                     Yangiliklar
                 </div>
 
-                <div class="flex justify-start gap-5 mt-12">
+                <div class="flex justify-start gap-5 mt-12 sm:flex-col sm:mt-5">
                     {% for new in news %}
-                    <a href="/news/{{ new.id }}/" class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md">
-                        <div class="w-full h-[320px]">
+                    <a href="/news/{{ new.id }}/" class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md sm:w-full">
+                        <div class="w-full h-[320px] sm:h-[250px]">
                             {% load static %}
                             <img class="w-full h-full rounded-2xl object-cover" src="https://obidalar.uz/media/{{ new.image }}" alt="monument image">
                         </div>
