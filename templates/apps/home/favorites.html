@@ -6,21 +6,21 @@
 
 {% block body %}
 	<div>
-        <div id="banner" class="h-[400px] w-full">
+        <div id="banner" class="h-[400px] w-full sm:h-[270px]">
             {% load static %}
             <img class="w-full h-full object-cover transform scale-x-[-1]" src="{% static 'images/banner.jpg' %}" alt="">
         </div>
-        <div class="ml-48 absolute top-[30%] tracking-tight font-tt-medium text-2xl text-white">
+        <div class="ml-48 absolute top-[30%] tracking-tight font-tt-medium text-2xl text-white sm:top-[22%] sm:ml-0 sm:text-lg">
             Sevimlilar ({{ count }})
         </div>
     </div>
 
     {# MONUMENTS SECTION #}
     <div>
-        <div class="container py-20">
-            <div class="flex flex-wrap justify-start gap-5">
+        <div class="container py-20 sm:py-12">
+            <div class="flex flex-wrap justify-start gap-5 lg:flex-col">
                 {% for favorites in user_favorites %}
-                <div class="w-[24%] h-full flex flex-col gap-5 mt-2">
+                <div class="w-[24%] h-full flex flex-col gap-5 mt-2 lg:w-full">
                     <div class="w-full h-[320px]">
                         <img class="w-full h-full rounded-2xl object-cover" src="https://obidalar.uz/media/{{ favorites.monument.image }}" alt="monument image">
                     </div>

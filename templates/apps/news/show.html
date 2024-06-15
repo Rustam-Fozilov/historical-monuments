@@ -6,7 +6,7 @@ Show news
 
 {% block body %}
 
-    <div class="py-28 pt-56">
+    <div class="py-28 sm:py-20">
         <div class="container mt-12">
             <div class="flex flex-col gap-5">
                 <div class="w-full">
@@ -24,11 +24,11 @@ Show news
                 {{ news.body }}
             </div>
 
-            <div class="mt-20 sm:mt-12">
+            <div class="mt-20 sm:mt-10">
                 <div class="font-tt-medium text-lg tracking-tight">
                     O'xshash yangiliklar
                 </div>
-                <div class="flex justify-start gap-5 mt-12 sm:mt-5 sm:flex-col">
+                <div class="flex justify-start gap-5 mt-12 sm:mt-0 sm:flex-col">
                     {% for other in others %}
                     <div class="w-[400px] max-h-[500px] flex flex-col gap-5 mt-2 bg-white p-5 rounded-3xl shadow-md sm:w-full sm:max-w-full">
                         <div class="w-full h-[320px] sm:h-[250px]">
