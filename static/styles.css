@@ -710,6 +710,10 @@ video {
   height: 100vh;
 }
 
+.max-h-\[450px\] {
+  max-height: 450px;
+}
+
 .max-h-\[500px\] {
   max-height: 500px;
 }
@@ -773,6 +777,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.max-w-md {
+  max-width: 28rem;
 }
 
 .scale-x-\[-1\] {

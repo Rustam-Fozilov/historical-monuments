@@ -17,7 +17,8 @@ def get_upload_path(instance, filename):
 class Monument(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description_1 = models.TextField(blank=True, null=True)
+    description_2 = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to=get_upload_path)
     video = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
