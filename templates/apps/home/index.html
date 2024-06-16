@@ -43,7 +43,7 @@ Home page
                            {% load static %}
                            <img class="w-full h-full object-cover rounded-t-2xl" src="https://obidalar.uz/media/{{ monument.image }}" alt="">
                         </div>
-                        <div class="p-5 font-tt-medium text-md">
+                        <div class="p-5 font-tt-medium text-md text-ellipsis overflow-hidden whitespace-nowrap">
                            <div>{{ monument.title }}</div>
                            <div class="text-ellipsis whitespace-nowrap text-rg font-tt-regular overflow-hidden">
                                {{ monument.description }}
